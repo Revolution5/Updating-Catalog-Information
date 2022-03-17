@@ -3,7 +3,7 @@ import requests
 import os
 
 imageDirectory = "supplier-data/images/"
-url = "http://localhost/upload" #ip address is given by the lab
+url = "http://localhost/upload/" #ip address is given by the lab
 
 for image in os.listdir(imageDirectory):
     if (image.endswith("jpeg")):
