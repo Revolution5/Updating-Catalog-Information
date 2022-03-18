@@ -12,6 +12,6 @@ for image in os.listdir(imageDirectory):
             imSplit = image.split(".")
             imNew = imSplit[0] + ".jpeg"
             #resize image to 600x400, convert image to RGB from RGBA, save as a .JPEG
-            im.resize((600,400))
-            im.convert("RGB")
-            im.save(imageDirectory + imNew, "JPEG")
+            im.resize((600,400)).im.convert("RGB").im.save(imageDirectory + imNew, "JPEG")
+            
+            
