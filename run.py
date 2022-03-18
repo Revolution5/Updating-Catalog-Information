@@ -2,9 +2,11 @@
 
 import os
 import requests
+import json
 
 descDirectory = "supplier-data/descriptions/"
 keys = ["name", "weight", "description", "image_name"]
+url = "http://localhost/fruits/"
 
 #loop thru the directory
 for file in os.listdir(descDirectory):
@@ -26,6 +28,6 @@ for file in os.listdir(descDirectory):
                 else:
                     dict[keys[keycount]] = value
                 keycount+=1
-                
-            print(dict)
-            print("\n")
+            dict["image_name"] = file.split(".")[0] + ".jpeg"
+            json_object = json.dumps(dict, indent=2)
+            r = requests.post(url, json=dict)
