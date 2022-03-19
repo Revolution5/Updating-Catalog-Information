@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from reportlab.platypus import SimpleDocTemplate
-from reportlab.platypus import Paragraph
+from reportlab.platypus import Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 
 def generate_report(attachment, title, paragraph):
@@ -9,4 +9,5 @@ def generate_report(attachment, title, paragraph):
     report = SimpleDocTemplate(attachment)
     report_title = Paragraph(title, styles["h1"])
     report_body = Paragraph(paragraph, styles["BodyText"])
-    report.build([report_title, report_body])
+    empty_line = Spacer(1,20)
+    report.build([report_title, empty_line, report_body, empty_line])
